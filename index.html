@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Kartik Portfolio</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+    <!-- Navbar -->
+
+    <nav>
+
+        <h2>KARTIK</h2>
+
+        <ul>
+
+            <li><a href="#about">About</a></li>
+
+            <li><a href="#skills">Skills</a></li>
+
+            <li><a href="#projects">Projects</a></li>
+
+            <li><a href="#contact">Contact</a></li>
+
+        </ul>
+
+        <div class="social-links">
+
+            <a href="https://linkedin.com/kartik-soni-4620a132a" target="_blank">LinkedIn</a>
+
+            <a href="https://github.com/ksoni6546" target="_blank">GitHub</a>
+
+        </div>
+
+    </nav>
+
+
+    <!-- Hero Section -->
+
+    <section class="hero">
+
+        <h1>Hello, I'm Kartik Soni</h1>
+
+        <p>
+            Frontend Developer | CSE Student
+        </p>
+
+        <div class="hero-buttons">
+
+            <button onclick="goToProjects()">
+                View Projects
+            </button>
+
+            <button onclick="goToContact()">
+                Contact Me
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- About -->
+
+    <section id="about">
+
+        <h2>About Me</h2>
+
+        <p>
+
+            Final-year B.Tech Computer Science student with hands-on experience in frontend development,
+            Java-based applications, and Unity game development.
+
+            Currently pursuing Full Stack Web Development training while building projects using HTML,
+            CSS, JavaScript, Java, and DBMS.
+
+            Passionate about creating clean UI designs and improving problem-solving skills through
+            real-world projects and internships.
+
+        </p>
+
+    </section>
+
+
+    <!-- Skills -->
+
+    <section id="skills">
+
+        <h2>Skills</h2>
+
+        <div class="skills-box">
+
+            <div class="card">HTML</div>
+
+            <div class="card">CSS</div>
+
+            <div class="card">JavaScript</div>
+
+            <div class="card">Java</div>
+
+            <div class="card">DBMS</div>
+
+            <div class="card">SQL</div>
+
+            <div class="card">MongoDB</div>
+
+            <div class="card">C++</div>
+
+            <div class="card">Unity Engine</div>
+
+            <div class="card">OOPS</div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Projects -->
+
+    <section id="projects">
+
+        <h2>Projects</h2>
+
+        <div class="project-container">
+
+            <div class="project-card" onclick="showProject('erp')">
+
+                <h3>College ERP System</h3>
+
+                <p>Java + DBMS Based Project</p>
+
+            </div>
+
+
+            <div class="project-card" onclick="showProject('game')">
+
+                <h3>Unity Endless Runner Game</h3>
+
+                <p>Unity + C# Based Project</p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Project Details -->
+
+    <section id="projectDetails">
+
+        <h2 id="projectTitle"></h2>
+
+        <p id="projectDesc"></p>
+
+    </section>
+
+
+    <!-- Contact -->
+
+    <section id="contact">
+
+        <h2>Contact Me</h2>
+
+        <input type="text" id="name" placeholder="Enter your Name">
+
+        <input type="email" id="email" placeholder="Enter your Email">
+
+        <textarea id="message" placeholder="Enter your Message"></textarea>
+
+        <button onclick="submitForm()">
+            Send Message
+        </button>
+
+    </section>
+
+
+    <!-- Footer -->
+
+    <footer>
+
+        <p>
+            © 2026 Kartik Soni | Portfolio Website
+        </p>
+
+    </footer>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
