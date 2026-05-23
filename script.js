@@ -22,41 +22,13 @@ function goToContact(){
 
 
 
-function submitForm(){
-
-    let name = document.getElementById("name").value;
-
-    let email = document.getElementById("email").value;
-
-    let message = document.getElementById("message").value;
-
-
-
-    if(name === "" || email === "" || message === ""){
-
-        alert("Please fill all fields");
-    }
-
-    else{
-
-        alert("Message Sent Successfully");
-
-        document.getElementById("name").value = "";
-
-        document.getElementById("email").value = "";
-
-        document.getElementById("message").value = "";
-    }
-}
-
-
+/* Project Details */
 
 function showProject(type){
 
     let title = "";
 
     let desc = "";
-
 
 
     if(type === "erp"){
@@ -68,7 +40,6 @@ function showProject(type){
     }
 
 
-
     else if(type === "game"){
 
         title = "Unity Endless Runner Game";
@@ -78,30 +49,95 @@ function showProject(type){
     }
 
 
-
     document.getElementById("projectTitle").innerText = title;
 
     document.getElementById("projectDesc").innerText = desc;
+
+    document.getElementById("projectDetails").style.display = "block";
+
+
+    document
+    .getElementById("projectDetails")
+    .scrollIntoView({
+
+        behavior: "smooth"
+    });
 }
 
 
 
 /* Typing Effect */
 
-let text = "Frontend Developer";
+let roles = [
+    "Frontend Developer",
+    "Java Learner",
+    "CSE Student"
+];
 
-let index = 0;
+let roleIndex = 0;
+
+let charIndex = 0;
+
+let typingText = document.getElementById("typing-text");
 
 function typeEffect(){
 
-    if(index < text.length){
+    if(charIndex < roles[roleIndex].length){
 
-        document.getElementById("typing-text").innerHTML += text.charAt(index);
+        typingText.innerHTML += roles[roleIndex].charAt(charIndex);
 
-        index++;
+        charIndex++;
 
         setTimeout(typeEffect,100);
+    }
+
+    else{
+
+        setTimeout(eraseEffect,1500);
+    }
+}
+
+function eraseEffect(){
+
+    if(charIndex > 0){
+
+        typingText.innerHTML =
+        roles[roleIndex].substring(0,charIndex-1);
+
+        charIndex--;
+
+        setTimeout(eraseEffect,50);
+    }
+
+    else{
+
+        roleIndex++;
+
+        if(roleIndex >= roles.length){
+
+            roleIndex = 0;
+        }
+
+        setTimeout(typeEffect,300);
     }
 }
 
 typeEffect();
+
+
+
+/* Scroll Progress Bar */
+
+window.onscroll = function(){
+
+    let scrollTop = document.documentElement.scrollTop;
+
+    let height =
+    document.documentElement.scrollHeight -
+    document.documentElement.clientHeight;
+
+    let scrollPercent = (scrollTop / height) * 100;
+
+    document.getElementById("progressBar").style.width =
+    scrollPercent + "%";
+}

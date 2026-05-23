@@ -7,6 +7,27 @@ body{
     background-color: #f8fafc;
 
     color: #111827;
+
+    overflow-x: hidden;
+}
+
+
+/* Progress Bar */
+
+#progressBar{
+
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    width: 0%;
+
+    height: 4px;
+
+    background: #60a5fa;
+
+    z-index: 2000;
 }
 
 
@@ -20,7 +41,7 @@ nav{
 
     align-items: center;
 
-    padding: 18px 40px;
+    padding: 15px 8%;
 
     background: rgba(15,23,42,0.9);
 
@@ -31,6 +52,8 @@ nav{
     top: 0;
 
     z-index: 1000;
+
+    border-bottom: 1px solid rgba(255,255,255,0.08);
 }
 
 .logo{
@@ -90,7 +113,7 @@ nav ul li a:hover{
 
 .hero{
 
-    height: 100vh;
+    min-height: 90vh;
 
     display: flex;
 
@@ -155,6 +178,8 @@ nav ul li a:hover{
     z-index: 1;
 
     padding: 20px;
+
+    animation: heroAnimation 1.2s ease;
 }
 
 .hero h1{
@@ -191,6 +216,23 @@ nav ul li a:hover{
     margin-top: 20px;
 }
 
+@keyframes heroAnimation{
+
+    from{
+
+        opacity: 0;
+
+        transform: translateY(50px);
+    }
+
+    to{
+
+        opacity: 1;
+
+        transform: translateY(0);
+    }
+}
+
 
 /* Buttons */
 
@@ -201,7 +243,7 @@ nav ul li a:hover{
 
 button{
 
-    padding: 14px 30px;
+    padding: 12px 24px;
 
     border: none;
 
@@ -215,7 +257,7 @@ button{
 
     color: white;
 
-    font-size: 16px;
+    font-size: 15px;
 
     cursor: pointer;
 
@@ -231,6 +273,42 @@ button:hover{
     transform: translateY(-3px);
 
     box-shadow: 0px 10px 20px rgba(37,99,235,0.35);
+}
+
+
+/* Sections */
+
+section{
+
+    padding: 70px 8%;
+
+    animation: fadeIn 1s ease;
+}
+
+section h2{
+
+    font-size: 35px;
+
+    margin-bottom: 20px;
+
+    color: #0f172a;
+}
+
+@keyframes fadeIn{
+
+    from{
+
+        opacity: 0;
+
+        transform: translateY(30px);
+    }
+
+    to{
+
+        opacity: 1;
+
+        transform: translateY(0);
+    }
 }
 
 
@@ -285,23 +363,6 @@ button:hover{
 }
 
 
-/* Sections */
-
-section{
-
-    padding: 80px 50px;
-}
-
-section h2{
-
-    font-size: 35px;
-
-    margin-bottom: 20px;
-
-    color: #0f172a;
-}
-
-
 /* About */
 
 #about p{
@@ -335,6 +396,8 @@ section h2{
 
     font-weight: bold;
 
+    font-size: 15px;
+
     transition: 0.3s;
 }
 
@@ -343,6 +406,50 @@ section h2{
     transform: translateY(-5px);
 
     box-shadow: 0px 5px 15px rgba(37,99,235,0.2);
+}
+
+
+/* Certifications */
+
+.cert-container{
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 20px;
+}
+
+.cert-card{
+
+    background: linear-gradient(
+        135deg,
+        #ffffff,
+        #eff6ff
+    );
+
+    padding: 22px;
+
+    border-radius: 15px;
+
+    box-shadow: 0px 5px 20px rgba(0,0,0,0.08);
+
+    transition: 0.3s;
+
+    flex: 1;
+
+    min-width: 250px;
+
+    font-weight: bold;
+
+    color: #1e3a8a;
+}
+
+.cert-card:hover{
+
+    transform: translateY(-8px);
+
+    box-shadow: 0px 10px 25px rgba(37,99,235,0.2);
 }
 
 
@@ -408,6 +515,13 @@ section h2{
     padding: 30px;
 
     box-shadow: 0px 5px 20px rgba(0,0,0,0.08);
+
+    transition: 0.4s;
+}
+
+#projectTitle{
+
+    color: #2563eb;
 }
 
 #projectDesc{
@@ -458,6 +572,7 @@ section h2{
 
     text-decoration: underline;
 }
+
 
 /* Footer */
 
