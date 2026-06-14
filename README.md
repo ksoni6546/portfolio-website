@@ -14,8 +14,5 @@ This is my personal portfolio website built using HTML, CSS and JavaScript.
 - CSS
 - JavaScript
 
-## Live Website
-https://ksoni6546.github.io/portfolio-website/
-
 ## GitHub Repository
 https://github.com/ksoni6546/portfolio-website
