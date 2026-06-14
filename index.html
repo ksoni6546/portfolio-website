@@ -1,307 +1,426 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
-    <meta charset="UTF-8">
-
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Kartik Portfolio</title>
-
-    <link rel="stylesheet" href="style.css">
-
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kartik Soni — CS Engineer &amp; Game Developer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-    <!-- Progress Bar -->
+<div class="noise"></div>
+<div class="cursor-glow" id="cursorGlow"></div>
 
-    <div id="progressBar"></div>
+<!-- NAV -->
+<header class="navbar">
+  <div class="nav-inner">
+    <a href="#home" class="logo">KS<span class="logo-dot">.</span></a>
+    <nav class="nav-links">
+      <a href="#about"><span class="num">01</span>about</a>
+      <a href="#skills"><span class="num">02</span>skills</a>
+      <a href="#projects"><span class="num">03</span>projects</a>
+      <a href="#testimonials"><span class="num">04</span>feedback</a>
+      <a href="#contact"><span class="num">05</span>contact</a>
+    </nav>
+    <a href="Kartik_Soni_Resume.pdf" class="nav-cta" download>resume.pdf</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
 
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-bg">
+    <div class="grid-lines"></div>
+    <div class="glow-orb orb-1"></div>
+    <div class="glow-orb orb-2"></div>
+  </div>
 
-    <!-- Navbar -->
+  <div class="hero-inner">
+    <div class="hero-text">
+      <p class="eyebrow"><span class="dot-pulse"></span> available for internships &amp; freelance</p>
+      <h1 class="hero-title">
+        <span class="terminal-line">
+          <span class="prompt">kartik@dev</span><span class="prompt-sep">:~$</span>
+          <span class="typed" id="typedText"></span><span class="cursor-blink">|</span>
+        </span>
+        <span class="hero-name">Kartik Soni</span>
+      </h1>
+      <p class="hero-sub">
+        B.Tech Computer Science student building <span class="hl">games in Unity</span>,
+        <span class="hl">full-stack web apps</span>, and exploring <span class="hl">cybersecurity</span> —
+        currently shipping a CRM platform from the ground up.
+      </p>
+      <div class="hero-actions">
+        <a href="#projects" class="btn btn-primary">View Work <span class="arrow">→</span></a>
+        <a href="#contact" class="btn btn-ghost">Get in Touch</a>
+      </div>
+      <div class="hero-meta">
+        <div class="meta-item">
+          <span class="meta-label">based in</span>
+          <span class="meta-value">Jaipur, Rajasthan, IN</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-label">stack</span>
+          <span class="meta-value">C++ / Java / Unity / MERN</span>
+        </div>
+      </div>
+    </div>
 
-    <nav>
+    <div class="hero-visual">
+      <div class="photo-frame">
+        <div class="photo-frame-glow"></div>
+        <img src="profile.png" alt="Kartik Soni" class="photo">
+        <div class="frame-tag frame-tag-1">
+          <span class="frame-icon">●</span> Online
+        </div>
+        <div class="frame-tag frame-tag-2">
+          B.Tech CSE · 2023–2027
+        </div>
+      </div>
+    </div>
+  </div>
 
-        <h2 class="logo">KARTIK</h2>
+  <a href="#about" class="scroll-cue" aria-label="Scroll down">
+    <span>scroll</span>
+    <div class="scroll-line"></div>
+  </a>
+</section>
 
-        <ul>
+<!-- ABOUT -->
+<section class="section" id="about">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="section-tag">01 / about</span>
+      <h2 class="section-title">Who's behind the code</h2>
+    </div>
 
-            <li><a href="#about">About</a></li>
+    <div class="about-grid">
+      <div class="about-copy reveal">
+        <p class="lead">
+          I'm a final-year Computer Science Engineering student at
+          <strong> Arya College of Engineering &amp; IT, Jaipur</strong>, with a habit
+          of building things that either run a game loop, serve an API, or both.
+        </p>
+        <p>
+          My journey started with C and C++ fundamentals, moved into
+          <strong> game programming with Unity and C#</strong> during an internship
+          at Tech Force — where I built an endless-runner from movement
+          mechanics to scoring systems — and has since expanded into
+          <strong> full-stack web development, databases, and cybersecurity</strong>.
+        </p>
+        <p>
+          Right now I'm deep in the middle of building a
+          <strong> CRM platform</strong> from scratch (actively in progress —
+          not a "finished and forgotten" project) while continuing certifications
+          in MongoDB, GenAI, and security fundamentals.
+        </p>
 
-            <li><a href="#skills">Skills</a></li>
+        <div class="about-stats">
+          <div class="stat">
+            <span class="stat-num">2027</span>
+            <span class="stat-label">expected graduation</span>
+          </div>
+          <div class="stat">
+            <span class="stat-num">5+</span>
+            <span class="stat-label">certifications</span>
+          </div>
+          <div class="stat">
+            <span class="stat-num">3</span>
+            <span class="stat-label">core domains — game / web / security</span>
+          </div>
+        </div>
+      </div>
 
-            <li><a href="#projects">Projects</a></li>
+      <div class="about-side reveal">
+        <div class="info-card">
+          <h3>Education</h3>
+          <ul class="timeline">
+            <li>
+              <span class="timeline-year">2023 – 2027</span>
+              <strong>B.Tech, Computer Science Engineering</strong>
+              <span class="timeline-sub">Arya College of Engineering &amp; IT, Jaipur</span>
+            </li>
+            <li>
+              <span class="timeline-year">2023</span>
+              <strong>Class XII, CBSE</strong>
+              <span class="timeline-sub">Bhartiya Public School, Rewari</span>
+            </li>
+            <li>
+              <span class="timeline-year">2021</span>
+              <strong>Class X, CBSE</strong>
+              <span class="timeline-sub">DAV Public School, Panchkula</span>
+            </li>
+          </ul>
+        </div>
 
-            <li><a href="#contact">Contact</a></li>
+        <div class="info-card">
+          <h3>Certifications</h3>
+          <ul class="tag-list">
+            <li>MongoDB Basics for Students</li>
+            <li>MongoDB Atlas</li>
+            <li>MongoDB GenAI</li>
+            <li>Tata Cybersecurity Analyst — Forage</li>
+            <li>Salesforce Developer Virtual Experience</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-        </ul>
+<!-- SKILLS -->
+<section class="section section-alt" id="skills">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="section-tag">02 / skills</span>
+      <h2 class="section-title">Tools of the trade</h2>
+    </div>
+
+    <div class="skills-grid">
+      <div class="skill-card reveal">
+        <div class="skill-card-head">
+          <span class="skill-icon">⌘</span>
+          <h3>Languages</h3>
+        </div>
+        <div class="skill-bars">
+          <div class="skill-bar"><span>C / C++</span><div class="bar"><div class="bar-fill" style="--w:90%"></div></div></div>
+          <div class="skill-bar"><span>Java</span><div class="bar"><div class="bar-fill" style="--w:75%"></div></div></div>
+          <div class="skill-bar"><span>C# (Unity)</span><div class="bar"><div class="bar-fill" style="--w:70%"></div></div></div>
+          <div class="skill-bar"><span>JavaScript</span><div class="bar"><div class="bar-fill" style="--w:65%"></div></div></div>
+        </div>
+      </div>
+
+      <div class="skill-card reveal">
+        <div class="skill-card-head">
+          <span class="skill-icon">◧</span>
+          <h3>Web &amp; Database</h3>
+        </div>
+        <div class="skill-bars">
+          <div class="skill-bar"><span>HTML / CSS</span><div class="bar"><div class="bar-fill" style="--w:85%"></div></div></div>
+          <div class="skill-bar"><span>MongoDB</span><div class="bar"><div class="bar-fill" style="--w:70%"></div></div></div>
+          <div class="skill-bar"><span>SQL / DBMS</span><div class="bar"><div class="bar-fill" style="--w:70%"></div></div></div>
+          <div class="skill-bar"><span>Full Stack (MERN — ongoing)</span><div class="bar"><div class="bar-fill" style="--w:60%"></div></div></div>
+        </div>
+      </div>
+
+      <div class="skill-card reveal">
+        <div class="skill-card-head">
+          <span class="skill-icon">▣</span>
+          <h3>Tools &amp; Platforms</h3>
+        </div>
+        <div class="tag-cloud">
+          <span>Unity Engine</span>
+          <span>VS Code</span>
+          <span>Git &amp; GitHub</span>
+          <span>Turbo C</span>
+          <span>Figma (basic)</span>
+        </div>
+
+        <div class="skill-card-head" style="margin-top: 1.75rem;">
+          <span class="skill-icon">◎</span>
+          <h3>Core &amp; Soft Skills</h3>
+        </div>
+        <div class="tag-cloud">
+          <span>DSA</span>
+          <span>OOP</span>
+          <span>Problem Solving</span>
+          <span>Teamwork</span>
+          <span>Time Management</span>
+          <span>Communication</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section class="section" id="projects">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="section-tag">03 / projects</span>
+      <h2 class="section-title">Things I've built &amp; am building</h2>
+    </div>
+
+    <div class="projects-grid">
+
+      <article class="project-card project-card-featured reveal">
+        <div class="project-status status-progress">in progress</div>
+        <div class="project-body">
+          <h3>CRM Platform</h3>
+          <p class="project-meta">MERN-style stack · ongoing development</p>
+          <p>
+            A customer relationship management platform built from scratch —
+            currently in active development. Designing the data models,
+            authentication flow, dashboards, and core CRM modules end to end.
+          </p>
+          <div class="project-tags">
+            <span>MongoDB</span>
+            <span>JavaScript</span>
+            <span>Full Stack</span>
+            <span>Auth &amp; Dashboards</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="project-card reveal">
+        <div class="project-status status-done">internship build</div>
+        <div class="project-body">
+          <h3>Endless Runner — Unity Game</h3>
+          <p class="project-meta">Tech Force · Game Programming Internship</p>
+          <p>
+            Built an endless-runner game in Unity using C#. Implemented player
+            movement, obstacle spawning, collision detection, scoring system,
+            and core UI — then debugged and tuned for stable gameplay.
+          </p>
+          <div class="project-tags">
+            <span>Unity</span>
+            <span>C#</span>
+            <span>Game Logic</span>
+            <span>UI/UX</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="project-card reveal">
+        <div class="project-status status-team">team project</div>
+        <div class="project-body">
+          <h3>College ERP System</h3>
+          <p class="project-meta">Java &amp; DBMS · team project</p>
+          <p>
+            Contributed to a Java-based College ERP System — owned the Student
+            Dashboard module, improved the frontend UI, and helped wire up
+            database connectivity for student record management.
+          </p>
+          <div class="project-tags">
+            <span>Java</span>
+            <span>DBMS</span>
+            <span>Dashboard UI</span>
+            <span>Team Project</span>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="section section-alt" id="testimonials">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="section-tag">04 / feedback</span>
+      <h2 class="section-title">What people say</h2>
+    </div>
+
+    <div class="testimonials-grid">
+      <div class="testimonial-card reveal">
+        <p class="testimonial-quote">
+          "Kartik picked up Unity fast and owned the gameplay mechanics for our
+          endless-runner build — movement, scoring, collisions, all of it.
+          Reliable, communicative, and always debugging until it actually worked."
+        </p>
+        <div class="testimonial-author">
+          <span class="author-name">Mentor</span>
+          <span class="author-role">Tech Force — Game Programming Internship</span>
+        </div>
+      </div>
+
+      <div class="testimonial-card reveal">
+        <p class="testimonial-quote">
+          "On the ERP project, Kartik handled the Student Dashboard module and
+          frontend improvements with a clean, organized approach. Good at
+          collaborating on system design and following through on the database side."
+        </p>
+        <div class="testimonial-author">
+          <span class="author-name">Project Teammate</span>
+          <span class="author-role">College ERP System — Team Project</span>
+        </div>
+      </div>
+
+      <div class="testimonial-card reveal">
+        <p class="testimonial-quote">
+          "Consistently curious — always picking up a new certification or
+          training, from MongoDB to cybersecurity simulations, and applying
+          it directly to whatever he's building next."
+        </p>
+        <div class="testimonial-author">
+          <span class="author-name">Faculty Note</span>
+          <span class="author-role">Arya College of Engineering &amp; IT, Jaipur</span>
+        </div>
+      </div>
+    </div>
+    <p class="testimonial-disclaimer">Replace with real quotes from mentors, professors, or teammates as you collect them.</p>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="section" id="contact">
+  <div class="container">
+    <div class="contact-wrap reveal">
+      <div class="contact-left">
+        <span class="section-tag">05 / contact</span>
+        <h2 class="section-title">Let's build something</h2>
+        <p class="lead">
+          Open to internships, freelance projects, and collaborations —
+          especially around game development, full-stack web, or anything
+          that needs someone who'll actually finish what they start.
+        </p>
+
+        <div class="contact-details">
+          <a href="mailto:ksoni654600@gmail.com" class="contact-row">
+            <span class="contact-icon">✉</span>
+            <span>ksoni654600@gmail.com</span>
+          </a>
+          <a href="tel:+919166379653" class="contact-row">
+            <span class="contact-icon">☏</span>
+            <span>+91 91663 79653</span>
+          </a>
+          <div class="contact-row">
+            <span class="contact-icon">⌖</span>
+            <span>Jaipur, Rajasthan, India</span>
+          </div>
+        </div>
 
         <div class="social-links">
-
-            <a href="https://www.linkedin.com/in/kartik-soni-4620a132a" target="_blank">
-                LinkedIn
-            </a>
-
-            <a href="https://github.com/ksoni6546" target="_blank">
-                GitHub
-            </a>
-
+          <a href="https://www.linkedin.com/in/kartik-soni-4620a132a" target="_blank" rel="noopener">LinkedIn ↗</a>
+          <a href="https://github.com/ksoni6546" target="_blank" rel="noopener">GitHub ↗</a>
+          <a href="Kartik_Soni_Resume.pdf" download>Download Resume ↓</a>
         </div>
+      </div>
 
-    </nav>
-
-
-    <!-- Hero Section -->
-
-    <section class="hero">
-
-        <div class="hero-content">
-
-            <h1>
-                Hi, I'm <span>Kartik Soni</span>
-            </h1>
-
-            <h2 id="typing-text"></h2>
-
-            <p>
-                Computer Science student passionate about frontend development,
-                Java applications and modern UI design.
-            </p>
-
-            <div class="hero-buttons">
-
-                <button onclick="goToProjects()">
-                    View Projects
-                </button>
-
-                <button onclick="goToContact()">
-                    Contact Info
-                </button>
-
-            </div>
-
+      <form class="contact-form" id="contactForm">
+        <div class="form-row">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" placeholder="Your name" required>
         </div>
-
-    </section>
-
-
-    <!-- Stats Section -->
-
-    <section id="stats">
-
-        <div class="stat-box">
-
-            <h2>2+</h2>
-
-            <p>Projects</p>
-
+        <div class="form-row">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" placeholder="you@example.com" required>
         </div>
-
-        <div class="stat-box">
-
-            <h2>5+</h2>
-
-            <p>Certifications</p>
-
+        <div class="form-row">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="5" placeholder="Tell me about your project..." required></textarea>
         </div>
-
-        <div class="stat-box">
-
-            <h2>1</h2>
-
-            <p>Internship</p>
-
-        </div>
-
-    </section>
-
-
-    <!-- About -->
-
-    <section id="about">
-
-        <h2>About Me</h2>
-
-        <p>
-
-            I am a Computer Science Engineering student with practical experience
-            in frontend development, Java-based applications and Unity game development.
-
-            Currently improving my development skills through internships,
-            projects and continuous learning in Full Stack Web Development.
-
-        </p>
-
-    </section>
-
-
-    <!-- Skills -->
-
-    <section id="skills">
-
-        <h2>Skills</h2>
-
-        <div class="skills-box">
-
-            <div class="card">HTML</div>
-
-            <div class="card">CSS</div>
-
-            <div class="card">JavaScript</div>
-
-            <div class="card">Java</div>
-
-            <div class="card">DBMS</div>
-
-            <div class="card">MongoDB</div>
-
-            <div class="card">SQL</div>
-
-            <div class="card">C++</div>
-
-            <div class="card">Unity Engine</div>
-
-            <div class="card">OOPS</div>
-
-        </div>
-
-    </section>
-
-
-    <!-- Certifications -->
-
-    <section id="certifications">
-
-        <h2>Certifications & Training</h2>
-
-        <div class="cert-container">
-
-            <div class="cert-card">
-                MongoDB Certification
-            </div>
-
-            <div class="cert-card">
-                Tata Cybersecurity Virtual Simulation
-            </div>
-
-            <div class="cert-card">
-                Salesforce Developer Virtual Experience
-            </div>
-
-            <div class="cert-card">
-                Full Stack Web Development Training
-            </div>
-
-            <div class="cert-card">
-                Gaming Programming Internship
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- Projects -->
-
-    <section id="projects">
-
-        <h2>Projects</h2>
-
-        <div class="project-container">
-
-            <div class="project-card" onclick="showProject('erp')">
-
-                <h3>College ERP System</h3>
-
-                <p>
-                    Java + DBMS Based Project
-                </p>
-
-                <button>
-                    View Details
-                </button>
-
-            </div>
-
-
-            <div class="project-card" onclick="showProject('game')">
-
-                <h3>Unity Endless Runner Game</h3>
-
-                <p>
-                    Unity + C# Based Project
-                </p>
-
-                <button>
-                    View Details
-                </button>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- Project Details -->
-
-    <section id="projectDetails" style="display: none;">
-
-        <h2 id="projectTitle"></h2>
-
-        <p id="projectDesc"></p>
-
-    </section>
-
-
-    <!-- Contact -->
-
-    <section id="contact">
-
-        <h2>Contact Information</h2>
-
-        <div class="contact-box">
-
-            <p>
-                <strong>Name:</strong> Kartik Soni
-            </p>
-
-            <p>
-                <strong>Email:</strong> ksoni654600@gmail.com
-            </p>
-
-            <p>
-                <strong>Location:</strong> Jaipur, Rajasthan
-            </p>
-
-            <p>
-                <strong>LinkedIn:</strong>
-
-                <a href="https://www.linkedin.com/in/kartik-soni-4620a132a" target="_blank">
-                    View Profile
-                </a>
-            </p>
-
-        </div>
-
-    </section>
-
-
-    <!-- Footer -->
-
-    <footer>
-
-        <p>
-            Built with HTML, CSS and JavaScript • Kartik Soni
-        </p>
-
-    </footer>
-
-
-    <script src="script.js"></script>
-
+        <button type="submit" class="btn btn-primary btn-full">Send Message <span class="arrow">→</span></button>
+        <p class="form-note" id="formNote"></p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container footer-inner">
+    <span class="logo">KS<span class="logo-dot">.</span></span>
+    <p>&copy; <span id="year"></span> Kartik Soni — Built with HTML, CSS &amp; JavaScript.</p>
+    <a href="#home" class="back-to-top">back to top ↑</a>
+  </div>
+</footer>
+
+<script src="script.js"></script>
 </body>
-
 </html>

@@ -1,143 +1,111 @@
-function goToProjects(){
+// ===== YEAR =====
+document.getElementById('year').textContent = new Date().getFullYear();
 
-    document
-    .getElementById("projects")
-    .scrollIntoView({
+// ===== CURSOR GLOW =====
+const cursorGlow = document.getElementById('cursorGlow');
+window.addEventListener('mousemove', (e) => {
+  cursorGlow.style.transform = `translate(${e.clientX - 240}px, ${e.clientY - 240}px)`;
+});
+window.addEventListener('mouseleave', () => { cursorGlow.style.opacity = '0'; });
+window.addEventListener('mouseenter', () => { cursorGlow.style.opacity = '1'; });
 
-        behavior: "smooth"
-    });
-}
-
-
-
-function goToContact(){
-
-    document
-    .getElementById("contact")
-    .scrollIntoView({
-
-        behavior: "smooth"
-    });
-}
-
-
-
-/* Project Details */
-
-function showProject(type){
-
-    let title = "";
-
-    let desc = "";
-
-
-    if(type === "erp"){
-
-        title = "College ERP System";
-
-        desc =
-        "Contributed to the development of a Java-based College ERP System as part of a team project. Worked on the Student Dashboard module, frontend UI improvements, student record management and database connectivity using DBMS concepts.";
-    }
-
-
-    else if(type === "game"){
-
-        title = "Unity Endless Runner Game";
-
-        desc =
-        "Developed a 2D endless runner game using Unity Engine and C#. Implemented player movement, obstacle mechanics, collision detection, scoring system and UI features while improving gameplay functionality through debugging and testing.";
-    }
-
-
-    document.getElementById("projectTitle").innerText = title;
-
-    document.getElementById("projectDesc").innerText = desc;
-
-    document.getElementById("projectDetails").style.display = "block";
-
-
-    document
-    .getElementById("projectDetails")
-    .scrollIntoView({
-
-        behavior: "smooth"
-    });
-}
-
-
-
-/* Typing Effect */
-
-let roles = [
-    "Frontend Developer",
-    "Java Learner",
-    "CSE Student"
+// ===== TYPED HERO TEXT =====
+const phrases = [
+  'whoami',
+  'building games & web apps',
+  'shipping a crm right now'
 ];
-
-let roleIndex = 0;
-
+const typedEl = document.getElementById('typedText');
+let phraseIndex = 0;
 let charIndex = 0;
+let deleting = false;
 
-let typingText = document.getElementById("typing-text");
+function typeLoop() {
+  const current = phrases[phraseIndex];
 
-function typeEffect(){
-
-    if(charIndex < roles[roleIndex].length){
-
-        typingText.innerHTML += roles[roleIndex].charAt(charIndex);
-
-        charIndex++;
-
-        setTimeout(typeEffect,100);
+  if (!deleting) {
+    typedEl.textContent = current.slice(0, charIndex + 1);
+    charIndex++;
+    if (charIndex === current.length) {
+      deleting = true;
+      setTimeout(typeLoop, 1400);
+      return;
     }
-
-    else{
-
-        setTimeout(eraseEffect,1500);
+  } else {
+    typedEl.textContent = current.slice(0, charIndex - 1);
+    charIndex--;
+    if (charIndex === 0) {
+      deleting = false;
+      phraseIndex = (phraseIndex + 1) % phrases.length;
     }
+  }
+
+  const speed = deleting ? 35 : 65;
+  setTimeout(typeLoop, speed);
 }
 
-function eraseEffect(){
-
-    if(charIndex > 0){
-
-        typingText.innerHTML =
-        roles[roleIndex].substring(0,charIndex-1);
-
-        charIndex--;
-
-        setTimeout(eraseEffect,50);
-    }
-
-    else{
-
-        roleIndex++;
-
-        if(roleIndex >= roles.length){
-
-            roleIndex = 0;
-        }
-
-        setTimeout(typeEffect,300);
-    }
+const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+if (reduceMotion) {
+  typedEl.textContent = phrases[0];
+} else {
+  typeLoop();
 }
 
-typeEffect();
+// ===== NAV TOGGLE =====
+const navToggle = document.getElementById('navToggle');
+const navInner = document.querySelector('.nav-inner');
+navToggle.addEventListener('click', () => {
+  navInner.classList.toggle('menu-open');
+});
 
+document.querySelectorAll('.nav-links a').forEach(link => {
+  link.addEventListener('click', () => navInner.classList.remove('menu-open'));
+});
 
+// ===== SCROLL REVEAL =====
+const revealEls = document.querySelectorAll('.reveal');
+const barFills = document.querySelectorAll('.bar-fill');
 
-/* Scroll Progress Bar */
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('in-view');
 
-window.onscroll = function(){
+      // trigger skill bar fills inside this element
+      entry.target.querySelectorAll('.bar-fill').forEach(bar => {
+        bar.classList.add('in-view');
+      });
 
-    let scrollTop = document.documentElement.scrollTop;
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.15 });
 
-    let height =
-    document.documentElement.scrollHeight -
-    document.documentElement.clientHeight;
+revealEls.forEach(el => observer.observe(el));
 
-    let scrollPercent = (scrollTop / height) * 100;
+// ===== NAVBAR ACTIVE LINK ON SCROLL =====
+const sections = document.querySelectorAll('section[id]');
+const navAnchors = document.querySelectorAll('.nav-links a');
 
-    document.getElementById("progressBar").style.width =
-    scrollPercent + "%";
-}
+const sectionObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const id = entry.target.getAttribute('id');
+      navAnchors.forEach(a => {
+        a.style.color = a.getAttribute('href') === `#${id}` ? 'var(--accent)' : '';
+      });
+    }
+  });
+}, { threshold: 0.5 });
+
+sections.forEach(sec => sectionObserver.observe(sec));
+
+// ===== CONTACT FORM (front-end only) =====
+const form = document.getElementById('contactForm');
+const formNote = document.getElementById('formNote');
+
+form.addEventListener('submit', (e) => {
+  e.preventDefault();
+  formNote.textContent = '✓ Message ready — connect a backend (Formspree, EmailJS, etc.) to send this for real.';
+  form.reset();
+});
