@@ -3,109 +3,108 @@ document.getElementById('year').textContent = new Date().getFullYear();
 
 // ===== CURSOR GLOW =====
 const cursorGlow = document.getElementById('cursorGlow');
+let mouseX = 0, mouseY = 0;
+let glowX = 0, glowY = 0;
+let rafId;
+
 window.addEventListener('mousemove', (e) => {
-  cursorGlow.style.transform = `translate(${e.clientX - 240}px, ${e.clientY - 240}px)`;
+  mouseX = e.clientX;
+  mouseY = e.clientY;
+  if (!rafId) rafId = requestAnimationFrame(animateGlow);
 });
 window.addEventListener('mouseleave', () => { cursorGlow.style.opacity = '0'; });
 window.addEventListener('mouseenter', () => { cursorGlow.style.opacity = '1'; });
 
-// ===== TYPED HERO TEXT =====
-const phrases = [
-  'whoami',
-  'building games & web apps',
-  'shipping a crm right now'
-];
-const typedEl = document.getElementById('typedText');
-let phraseIndex = 0;
-let charIndex = 0;
-let deleting = false;
-
-function typeLoop() {
-  const current = phrases[phraseIndex];
-
-  if (!deleting) {
-    typedEl.textContent = current.slice(0, charIndex + 1);
-    charIndex++;
-    if (charIndex === current.length) {
-      deleting = true;
-      setTimeout(typeLoop, 1400);
-      return;
-    }
-  } else {
-    typedEl.textContent = current.slice(0, charIndex - 1);
-    charIndex--;
-    if (charIndex === 0) {
-      deleting = false;
-      phraseIndex = (phraseIndex + 1) % phrases.length;
-    }
-  }
-
-  const speed = deleting ? 35 : 65;
-  setTimeout(typeLoop, speed);
+function animateGlow() {
+  glowX += (mouseX - glowX) * 0.08;
+  glowY += (mouseY - glowY) * 0.08;
+  cursorGlow.style.transform = `translate(${glowX - 280}px, ${glowY - 280}px)`;
+  rafId = requestAnimationFrame(animateGlow);
 }
 
-const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-if (reduceMotion) {
-  typedEl.textContent = phrases[0];
-} else {
-  typeLoop();
-}
+// ===== NAVBAR SCROLL =====
+const navbar = document.getElementById('navbar');
+window.addEventListener('scroll', () => {
+  navbar.classList.toggle('scrolled', window.scrollY > 30);
+}, { passive: true });
 
-// ===== NAV TOGGLE =====
+// ===== MOBILE MENU =====
 const navToggle = document.getElementById('navToggle');
-const navInner = document.querySelector('.nav-inner');
+const mobileMenu = document.getElementById('mobileMenu');
+let menuOpen = false;
+
 navToggle.addEventListener('click', () => {
-  navInner.classList.toggle('menu-open');
+  menuOpen = !menuOpen;
+  mobileMenu.classList.toggle('open', menuOpen);
+  const spans = navToggle.querySelectorAll('span');
+  if (menuOpen) {
+    spans[0].style.cssText = 'transform:rotate(45deg) translate(4px,4px)';
+    spans[1].style.cssText = 'transform:rotate(-45deg) translate(4px,-4px)';
+  } else {
+    spans[0].style.cssText = '';
+    spans[1].style.cssText = '';
+  }
 });
 
-document.querySelectorAll('.nav-links a').forEach(link => {
-  link.addEventListener('click', () => navInner.classList.remove('menu-open'));
-});
-
-// ===== SCROLL REVEAL =====
-const revealEls = document.querySelectorAll('.reveal');
-const barFills = document.querySelectorAll('.bar-fill');
-
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('in-view');
-
-      // trigger skill bar fills inside this element
-      entry.target.querySelectorAll('.bar-fill').forEach(bar => {
-        bar.classList.add('in-view');
-      });
-
-      observer.unobserve(entry.target);
-    }
+mobileMenu.querySelectorAll('a').forEach(a => {
+  a.addEventListener('click', () => {
+    menuOpen = false;
+    mobileMenu.classList.remove('open');
+    navToggle.querySelectorAll('span').forEach(s => s.style.cssText = '');
   });
-}, { threshold: 0.15 });
+});
 
-revealEls.forEach(el => observer.observe(el));
-
-// ===== NAVBAR ACTIVE LINK ON SCROLL =====
+// ===== ACTIVE NAV LINK =====
 const sections = document.querySelectorAll('section[id]');
-const navAnchors = document.querySelectorAll('.nav-links a');
+const navLinks = document.querySelectorAll('.nav-links a');
 
-const sectionObserver = new IntersectionObserver((entries) => {
+const sectionObs = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
-      const id = entry.target.getAttribute('id');
-      navAnchors.forEach(a => {
-        a.style.color = a.getAttribute('href') === `#${id}` ? 'var(--accent)' : '';
+      const id = entry.target.id;
+      navLinks.forEach(a => {
+        a.classList.toggle('active', a.getAttribute('href') === `#${id}`);
       });
     }
   });
-}, { threshold: 0.5 });
+}, { threshold: 0.4 });
 
-sections.forEach(sec => sectionObserver.observe(sec));
+sections.forEach(s => sectionObs.observe(s));
 
-// ===== CONTACT FORM (front-end only) =====
+// ===== REVEAL ON SCROLL =====
+const revealEls = document.querySelectorAll('.reveal');
+
+const revealObs = new IntersectionObserver((entries) => {
+  entries.forEach((entry, i) => {
+    if (entry.isIntersecting) {
+      // stagger siblings
+      const siblings = Array.from(entry.target.parentElement.querySelectorAll('.reveal:not(.in-view)'));
+      const idx = siblings.indexOf(entry.target);
+      setTimeout(() => {
+        entry.target.classList.add('in-view');
+        // trigger skill bars
+        entry.target.querySelectorAll('.bar-fill').forEach(b => b.classList.add('in-view'));
+      }, idx * 80);
+      revealObs.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.12 });
+
+revealEls.forEach(el => revealObs.observe(el));
+
+// ===== CONTACT FORM =====
 const form = document.getElementById('contactForm');
 const formNote = document.getElementById('formNote');
 
 form.addEventListener('submit', (e) => {
   e.preventDefault();
-  formNote.textContent = '✓ Message ready — connect a backend (Formspree, EmailJS, etc.) to send this for real.';
-  form.reset();
+  const btn = form.querySelector('button[type=submit]');
+  btn.disabled = true;
+  btn.textContent = 'Sending…';
+  setTimeout(() => {
+    formNote.textContent = '✓ Message received — connect a backend like Formspree or EmailJS to send this for real.';
+    form.reset();
+    btn.disabled = false;
+    btn.innerHTML = 'Send Message <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M7 2l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+  }, 800);
 });

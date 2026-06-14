@@ -3,164 +3,176 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Kartik Soni — CS Engineer &amp; Game Developer</title>
+<title>Kartik Soni — CS Engineer & Game Developer</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<div class="noise"></div>
+<div class="noise-overlay"></div>
 <div class="cursor-glow" id="cursorGlow"></div>
 
 <!-- NAV -->
-<header class="navbar">
+<header class="navbar" id="navbar">
   <div class="nav-inner">
     <a href="#home" class="logo">KS<span class="logo-dot">.</span></a>
     <nav class="nav-links">
-      <a href="#about"><span class="num">01</span>about</a>
-      <a href="#skills"><span class="num">02</span>skills</a>
-      <a href="#projects"><span class="num">03</span>projects</a>
-      <a href="#testimonials"><span class="num">04</span>feedback</a>
-      <a href="#contact"><span class="num">05</span>contact</a>
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
     </nav>
-    <a href="Kartik_Soni_Resume.pdf" class="nav-cta" download>resume.pdf</a>
+    <a href="Kartik Soni Resume.pdf" class="nav-cta" download>
+      <span>Resume</span>
+      <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M6 1v7M2.5 5.5L6 9l3.5-3.5M1 11h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
     <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
-      <span></span><span></span><span></span>
+      <span></span><span></span>
     </button>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
+    <a href="Kartik Soni Resume.pdf" download class="mobile-resume">Download Resume</a>
   </div>
 </header>
 
 <!-- HERO -->
 <section class="hero" id="home">
-  <div class="hero-bg">
-    <div class="grid-lines"></div>
-    <div class="glow-orb orb-1"></div>
-    <div class="glow-orb orb-2"></div>
+  <div class="hero-orbs">
+    <div class="orb orb-a"></div>
+    <div class="orb orb-b"></div>
   </div>
+  <div class="hero-grid-bg"></div>
 
   <div class="hero-inner">
-    <div class="hero-text">
-      <p class="eyebrow"><span class="dot-pulse"></span> available for internships &amp; freelance</p>
-      <h1 class="hero-title">
-        <span class="terminal-line">
-          <span class="prompt">kartik@dev</span><span class="prompt-sep">:~$</span>
-          <span class="typed" id="typedText"></span><span class="cursor-blink">|</span>
-        </span>
-        <span class="hero-name">Kartik Soni</span>
-      </h1>
-      <p class="hero-sub">
-        B.Tech Computer Science student building <span class="hl">games in Unity</span>,
-        <span class="hl">full-stack web apps</span>, and exploring <span class="hl">cybersecurity</span> —
-        currently shipping a CRM platform from the ground up.
-      </p>
-      <div class="hero-actions">
-        <a href="#projects" class="btn btn-primary">View Work <span class="arrow">→</span></a>
-        <a href="#contact" class="btn btn-ghost">Get in Touch</a>
+    <div class="hero-content">
+      <div class="hero-badge">
+        <span class="badge-dot"></span>
+        <span>Available for internships &amp; freelance</span>
       </div>
-      <div class="hero-meta">
-        <div class="meta-item">
-          <span class="meta-label">based in</span>
-          <span class="meta-value">Jaipur, Rajasthan, IN</span>
+
+      <h1 class="hero-heading">
+        <span class="line-label">Kartik Soni</span>
+        <span class="line-role">CS Engineer<br>&amp; Game Dev</span>
+      </h1>
+
+      <p class="hero-desc">
+        B.Tech Computer Science student building games in Unity, full-stack web apps, and exploring cybersecurity — currently shipping a CRM platform from the ground up.
+      </p>
+
+      <div class="hero-cta-row">
+        <a href="#projects" class="btn btn-primary">
+          View Work
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M7 2l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <a href="#contact" class="btn btn-outline">Get in Touch</a>
+      </div>
+
+      <div class="hero-meta-row">
+        <div class="hero-meta-item">
+          <span class="meta-label">Based in</span>
+          <span class="meta-val">Jaipur, India</span>
         </div>
-        <div class="meta-item">
-          <span class="meta-label">stack</span>
-          <span class="meta-value">C++ / Java / Unity / MERN</span>
+        <div class="hero-meta-divider"></div>
+        <div class="hero-meta-item">
+          <span class="meta-label">Stack</span>
+          <span class="meta-val">C++ · Java · Unity · MERN</span>
+        </div>
+        <div class="hero-meta-divider"></div>
+        <div class="hero-meta-item">
+          <span class="meta-label">Degree</span>
+          <span class="meta-val">B.Tech CSE · 2027</span>
         </div>
       </div>
     </div>
 
-    <div class="hero-visual">
-      <div class="photo-frame">
-        <div class="photo-frame-glow"></div>
-        <img src="profile.png" alt="Kartik Soni" class="photo">
-        <div class="frame-tag frame-tag-1">
-          <span class="frame-icon">●</span> Online
-        </div>
-        <div class="frame-tag frame-tag-2">
-          B.Tech CSE · 2023–2027
+    <div class="hero-photo-wrap">
+      <div class="photo-ring"></div>
+      <div class="photo-card">
+        <img src="IMG_4829.png" alt="Kartik Soni" class="photo-img">
+        <div class="photo-status">
+          <span class="status-dot"></span>
+          <span>Open to work</span>
         </div>
       </div>
     </div>
   </div>
 
-  <a href="#about" class="scroll-cue" aria-label="Scroll down">
-    <span>scroll</span>
-    <div class="scroll-line"></div>
+  <a href="#about" class="scroll-hint" aria-label="Scroll to about">
+    <span class="scroll-line"></span>
   </a>
 </section>
 
 <!-- ABOUT -->
 <section class="section" id="about">
   <div class="container">
-    <div class="section-head reveal">
-      <span class="section-tag">01 / about</span>
-      <h2 class="section-title">Who's behind the code</h2>
-    </div>
+    <div class="section-label reveal">About</div>
+    <h2 class="section-heading reveal">Who's behind the code</h2>
 
-    <div class="about-grid">
-      <div class="about-copy reveal">
-        <p class="lead">
-          I'm a final-year Computer Science Engineering student at
-          <strong> Arya College of Engineering &amp; IT, Jaipur</strong>, with a habit
-          of building things that either run a game loop, serve an API, or both.
+    <div class="about-layout">
+      <div class="about-text reveal">
+        <p class="about-lead">
+          I'm a Computer Science Engineering student at <strong>Arya College of Engineering &amp; IT, Jaipur</strong>, with a habit of building things that either run a game loop, serve an API, or both.
         </p>
         <p>
-          My journey started with C and C++ fundamentals, moved into
-          <strong> game programming with Unity and C#</strong> during an internship
-          at Tech Force — where I built an endless-runner from movement
-          mechanics to scoring systems — and has since expanded into
-          <strong> full-stack web development, databases, and cybersecurity</strong>.
+          My journey started with C and C++ fundamentals, moved into <strong>game programming with Unity and C#</strong> during an internship at Tech Force — where I built an endless-runner from movement mechanics to scoring systems — and has since expanded into <strong>full-stack web development, databases, and cybersecurity</strong>.
         </p>
         <p>
-          Right now I'm deep in the middle of building a
-          <strong> CRM platform</strong> from scratch (actively in progress —
-          not a "finished and forgotten" project) while continuing certifications
-          in MongoDB, GenAI, and security fundamentals.
+          Right now I'm deep in building a <strong>CRM platform</strong> from scratch while continuing certifications in MongoDB, GenAI, and security fundamentals.
         </p>
 
         <div class="about-stats">
-          <div class="stat">
-            <span class="stat-num">2027</span>
-            <span class="stat-label">expected graduation</span>
+          <div class="stat-block reveal">
+            <span class="stat-number">2027</span>
+            <span class="stat-desc">Expected graduation</span>
           </div>
-          <div class="stat">
-            <span class="stat-num">5+</span>
-            <span class="stat-label">certifications</span>
+          <div class="stat-block reveal">
+            <span class="stat-number">5+</span>
+            <span class="stat-desc">Certifications earned</span>
           </div>
-          <div class="stat">
-            <span class="stat-num">3</span>
-            <span class="stat-label">core domains — game / web / security</span>
+          <div class="stat-block reveal">
+            <span class="stat-number">3</span>
+            <span class="stat-desc">Core domains mastered</span>
           </div>
         </div>
       </div>
 
-      <div class="about-side reveal">
-        <div class="info-card">
-          <h3>Education</h3>
-          <ul class="timeline">
+      <div class="about-cards">
+        <div class="info-panel reveal">
+          <div class="panel-header">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 1L8 15M1 8H15" stroke="var(--accent)" stroke-width="1.5" stroke-linecap="round"/><circle cx="8" cy="8" r="7" stroke="var(--accent)" stroke-width="1.2"/></svg>
+            <span>Education</span>
+          </div>
+          <ul class="edu-list">
             <li>
-              <span class="timeline-year">2023 – 2027</span>
+              <span class="edu-year">2023–2027</span>
               <strong>B.Tech, Computer Science Engineering</strong>
-              <span class="timeline-sub">Arya College of Engineering &amp; IT, Jaipur</span>
+              <span class="edu-place">Arya College of Engineering &amp; IT, Jaipur</span>
             </li>
             <li>
-              <span class="timeline-year">2023</span>
+              <span class="edu-year">2023</span>
               <strong>Class XII, CBSE</strong>
-              <span class="timeline-sub">Bhartiya Public School, Rewari</span>
+              <span class="edu-place">Bhartiya Public School, Rewari</span>
             </li>
             <li>
-              <span class="timeline-year">2021</span>
+              <span class="edu-year">2021</span>
               <strong>Class X, CBSE</strong>
-              <span class="timeline-sub">DAV Public School, Panchkula</span>
+              <span class="edu-place">DAV Public School, Panchkula</span>
             </li>
           </ul>
         </div>
 
-        <div class="info-card">
-          <h3>Certifications</h3>
-          <ul class="tag-list">
+        <div class="info-panel reveal">
+          <div class="panel-header">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><rect x="1" y="3" width="14" height="10" rx="2" stroke="var(--accent)" stroke-width="1.2"/><path d="M5 3V2a1 1 0 011-1h4a1 1 0 011 1v1" stroke="var(--accent)" stroke-width="1.2"/></svg>
+            <span>Certifications</span>
+          </div>
+          <ul class="cert-list">
             <li>MongoDB Basics for Students</li>
             <li>MongoDB Atlas</li>
             <li>MongoDB GenAI</li>
@@ -174,64 +186,97 @@
 </section>
 
 <!-- SKILLS -->
-<section class="section section-alt" id="skills">
+<section class="section section-dark" id="skills">
   <div class="container">
-    <div class="section-head reveal">
-      <span class="section-tag">02 / skills</span>
-      <h2 class="section-title">Tools of the trade</h2>
-    </div>
+    <div class="section-label reveal">Skills</div>
+    <h2 class="section-heading reveal">Tools of the trade</h2>
 
-    <div class="skills-grid">
-      <div class="skill-card reveal">
-        <div class="skill-card-head">
-          <span class="skill-icon">⌘</span>
-          <h3>Languages</h3>
-        </div>
+    <div class="skills-layout">
+      <div class="skill-group reveal">
+        <h3 class="skill-group-title">Languages</h3>
         <div class="skill-bars">
-          <div class="skill-bar"><span>C / C++</span><div class="bar"><div class="bar-fill" style="--w:90%"></div></div></div>
-          <div class="skill-bar"><span>Java</span><div class="bar"><div class="bar-fill" style="--w:75%"></div></div></div>
-          <div class="skill-bar"><span>C# (Unity)</span><div class="bar"><div class="bar-fill" style="--w:70%"></div></div></div>
-          <div class="skill-bar"><span>JavaScript</span><div class="bar"><div class="bar-fill" style="--w:65%"></div></div></div>
+          <div class="skill-bar-item">
+            <div class="skill-bar-meta">
+              <span>C / C++</span>
+              <span class="skill-pct">90%</span>
+            </div>
+            <div class="bar-track"><div class="bar-fill" style="--w:90%"></div></div>
+          </div>
+          <div class="skill-bar-item">
+            <div class="skill-bar-meta">
+              <span>Java</span>
+              <span class="skill-pct">75%</span>
+            </div>
+            <div class="bar-track"><div class="bar-fill" style="--w:75%"></div></div>
+          </div>
+          <div class="skill-bar-item">
+            <div class="skill-bar-meta">
+              <span>C# (Unity)</span>
+              <span class="skill-pct">70%</span>
+            </div>
+            <div class="bar-track"><div class="bar-fill" style="--w:70%"></div></div>
+          </div>
+          <div class="skill-bar-item">
+            <div class="skill-bar-meta">
+              <span>JavaScript</span>
+              <span class="skill-pct">65%</span>
+            </div>
+            <div class="bar-track"><div class="bar-fill" style="--w:65%"></div></div>
+          </div>
         </div>
       </div>
 
-      <div class="skill-card reveal">
-        <div class="skill-card-head">
-          <span class="skill-icon">◧</span>
-          <h3>Web &amp; Database</h3>
-        </div>
+      <div class="skill-group reveal">
+        <h3 class="skill-group-title">Web &amp; Database</h3>
         <div class="skill-bars">
-          <div class="skill-bar"><span>HTML / CSS</span><div class="bar"><div class="bar-fill" style="--w:85%"></div></div></div>
-          <div class="skill-bar"><span>MongoDB</span><div class="bar"><div class="bar-fill" style="--w:70%"></div></div></div>
-          <div class="skill-bar"><span>SQL / DBMS</span><div class="bar"><div class="bar-fill" style="--w:70%"></div></div></div>
-          <div class="skill-bar"><span>Full Stack (MERN — ongoing)</span><div class="bar"><div class="bar-fill" style="--w:60%"></div></div></div>
+          <div class="skill-bar-item">
+            <div class="skill-bar-meta">
+              <span>HTML / CSS</span>
+              <span class="skill-pct">85%</span>
+            </div>
+            <div class="bar-track"><div class="bar-fill" style="--w:85%"></div></div>
+          </div>
+          <div class="skill-bar-item">
+            <div class="skill-bar-meta">
+              <span>MongoDB</span>
+              <span class="skill-pct">70%</span>
+            </div>
+            <div class="bar-track"><div class="bar-fill" style="--w:70%"></div></div>
+          </div>
+          <div class="skill-bar-item">
+            <div class="skill-bar-meta">
+              <span>SQL / DBMS</span>
+              <span class="skill-pct">70%</span>
+            </div>
+            <div class="bar-track"><div class="bar-fill" style="--w:70%"></div></div>
+          </div>
+          <div class="skill-bar-item">
+            <div class="skill-bar-meta">
+              <span>MERN Stack (ongoing)</span>
+              <span class="skill-pct">60%</span>
+            </div>
+            <div class="bar-track"><div class="bar-fill" style="--w:60%"></div></div>
+          </div>
         </div>
       </div>
 
-      <div class="skill-card reveal">
-        <div class="skill-card-head">
-          <span class="skill-icon">▣</span>
-          <h3>Tools &amp; Platforms</h3>
-        </div>
+      <div class="skill-group skill-tags-group reveal">
+        <h3 class="skill-group-title">Tools &amp; Platforms</h3>
         <div class="tag-cloud">
           <span>Unity Engine</span>
           <span>VS Code</span>
           <span>Git &amp; GitHub</span>
+          <span>Figma</span>
           <span>Turbo C</span>
-          <span>Figma (basic)</span>
         </div>
-
-        <div class="skill-card-head" style="margin-top: 1.75rem;">
-          <span class="skill-icon">◎</span>
-          <h3>Core &amp; Soft Skills</h3>
-        </div>
+        <h3 class="skill-group-title" style="margin-top:1.75rem">Core Skills</h3>
         <div class="tag-cloud">
           <span>DSA</span>
           <span>OOP</span>
           <span>Problem Solving</span>
           <span>Teamwork</span>
-          <span>Time Management</span>
           <span>Communication</span>
+          <span>Time Management</span>
         </div>
       </div>
     </div>
@@ -241,183 +286,138 @@
 <!-- PROJECTS -->
 <section class="section" id="projects">
   <div class="container">
-    <div class="section-head reveal">
-      <span class="section-tag">03 / projects</span>
-      <h2 class="section-title">Things I've built &amp; am building</h2>
-    </div>
+    <div class="section-label reveal">Projects</div>
+    <h2 class="section-heading reveal">Things I've built</h2>
 
     <div class="projects-grid">
 
-      <article class="project-card project-card-featured reveal">
-        <div class="project-status status-progress">in progress</div>
-        <div class="project-body">
-          <h3>CRM Platform</h3>
-          <p class="project-meta">MERN-style stack · ongoing development</p>
-          <p>
-            A customer relationship management platform built from scratch —
-            currently in active development. Designing the data models,
-            authentication flow, dashboards, and core CRM modules end to end.
-          </p>
-          <div class="project-tags">
-            <span>MongoDB</span>
-            <span>JavaScript</span>
-            <span>Full Stack</span>
-            <span>Auth &amp; Dashboards</span>
+      <article class="project-card project-featured reveal">
+        <div class="project-top">
+          <span class="project-badge badge-active">In Progress</span>
+          <div class="project-links">
+            <!-- add GitHub/live links here when ready -->
           </div>
+        </div>
+        <h3>CRM Platform</h3>
+        <p class="project-stack">MERN Stack · Ongoing</p>
+        <p class="project-desc">
+          A full customer relationship management platform built from scratch. Designing data models, authentication flows, dashboards, and core CRM modules end to end.
+        </p>
+        <div class="project-tags">
+          <span>MongoDB</span>
+          <span>JavaScript</span>
+          <span>Full Stack</span>
+          <span>Auth</span>
+          <span>Dashboards</span>
         </div>
       </article>
 
       <article class="project-card reveal">
-        <div class="project-status status-done">internship build</div>
-        <div class="project-body">
-          <h3>Endless Runner — Unity Game</h3>
-          <p class="project-meta">Tech Force · Game Programming Internship</p>
-          <p>
-            Built an endless-runner game in Unity using C#. Implemented player
-            movement, obstacle spawning, collision detection, scoring system,
-            and core UI — then debugged and tuned for stable gameplay.
-          </p>
-          <div class="project-tags">
-            <span>Unity</span>
-            <span>C#</span>
-            <span>Game Logic</span>
-            <span>UI/UX</span>
-          </div>
+        <div class="project-top">
+          <span class="project-badge badge-done">Internship Build</span>
+        </div>
+        <h3>Endless Runner — Unity</h3>
+        <p class="project-stack">Tech Force · Game Programming Internship</p>
+        <p class="project-desc">
+          Built an endless-runner in Unity using C#. Implemented player movement, obstacle spawning, collision detection, scoring system, and core UI — debugged and tuned for stable gameplay.
+        </p>
+        <div class="project-tags">
+          <span>Unity</span>
+          <span>C#</span>
+          <span>Game Logic</span>
+          <span>UI/UX</span>
         </div>
       </article>
 
       <article class="project-card reveal">
-        <div class="project-status status-team">team project</div>
-        <div class="project-body">
-          <h3>College ERP System</h3>
-          <p class="project-meta">Java &amp; DBMS · team project</p>
-          <p>
-            Contributed to a Java-based College ERP System — owned the Student
-            Dashboard module, improved the frontend UI, and helped wire up
-            database connectivity for student record management.
-          </p>
-          <div class="project-tags">
-            <span>Java</span>
-            <span>DBMS</span>
-            <span>Dashboard UI</span>
-            <span>Team Project</span>
-          </div>
+        <div class="project-top">
+          <span class="project-badge badge-team">Team Project</span>
+        </div>
+        <h3>College ERP System</h3>
+        <p class="project-stack">Java &amp; DBMS · Team Project</p>
+        <p class="project-desc">
+          Owned the Student Dashboard module, improved the frontend UI, and wired up database connectivity for student record management in a Java-based ERP system.
+        </p>
+        <div class="project-tags">
+          <span>Java</span>
+          <span>DBMS</span>
+          <span>Dashboard UI</span>
         </div>
       </article>
 
     </div>
-  </div>
-</section>
-
-<!-- TESTIMONIALS -->
-<section class="section section-alt" id="testimonials">
-  <div class="container">
-    <div class="section-head reveal">
-      <span class="section-tag">04 / feedback</span>
-      <h2 class="section-title">What people say</h2>
-    </div>
-
-    <div class="testimonials-grid">
-      <div class="testimonial-card reveal">
-        <p class="testimonial-quote">
-          "Kartik picked up Unity fast and owned the gameplay mechanics for our
-          endless-runner build — movement, scoring, collisions, all of it.
-          Reliable, communicative, and always debugging until it actually worked."
-        </p>
-        <div class="testimonial-author">
-          <span class="author-name">Mentor</span>
-          <span class="author-role">Tech Force — Game Programming Internship</span>
-        </div>
-      </div>
-
-      <div class="testimonial-card reveal">
-        <p class="testimonial-quote">
-          "On the ERP project, Kartik handled the Student Dashboard module and
-          frontend improvements with a clean, organized approach. Good at
-          collaborating on system design and following through on the database side."
-        </p>
-        <div class="testimonial-author">
-          <span class="author-name">Project Teammate</span>
-          <span class="author-role">College ERP System — Team Project</span>
-        </div>
-      </div>
-
-      <div class="testimonial-card reveal">
-        <p class="testimonial-quote">
-          "Consistently curious — always picking up a new certification or
-          training, from MongoDB to cybersecurity simulations, and applying
-          it directly to whatever he's building next."
-        </p>
-        <div class="testimonial-author">
-          <span class="author-name">Faculty Note</span>
-          <span class="author-role">Arya College of Engineering &amp; IT, Jaipur</span>
-        </div>
-      </div>
-    </div>
-    <p class="testimonial-disclaimer">Replace with real quotes from mentors, professors, or teammates as you collect them.</p>
   </div>
 </section>
 
 <!-- CONTACT -->
-<section class="section" id="contact">
+<section class="section section-dark" id="contact">
   <div class="container">
-    <div class="contact-wrap reveal">
-      <div class="contact-left">
-        <span class="section-tag">05 / contact</span>
-        <h2 class="section-title">Let's build something</h2>
-        <p class="lead">
-          Open to internships, freelance projects, and collaborations —
-          especially around game development, full-stack web, or anything
-          that needs someone who'll actually finish what they start.
+    <div class="contact-layout">
+      <div class="contact-left reveal">
+        <div class="section-label">Contact</div>
+        <h2 class="section-heading">Let's build<br>something great</h2>
+        <p class="contact-desc">
+          Open to internships, freelance projects, and collaborations — especially around game development, full-stack web, or anything that needs someone who'll actually finish what they start.
         </p>
 
-        <div class="contact-details">
-          <a href="mailto:ksoni654600@gmail.com" class="contact-row">
-            <span class="contact-icon">✉</span>
+        <div class="contact-links">
+          <a href="mailto:ksoni654600@gmail.com" class="contact-link">
+            <div class="contact-icon-wrap">
+              <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><rect x="1" y="3" width="16" height="12" rx="2" stroke="currentColor" stroke-width="1.4"/><path d="M1 6l8 5 8-5" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/></svg>
+            </div>
             <span>ksoni654600@gmail.com</span>
           </a>
-          <a href="tel:+919166379653" class="contact-row">
-            <span class="contact-icon">☏</span>
+          <a href="tel:+919166379653" class="contact-link">
+            <div class="contact-icon-wrap">
+              <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M3 2h3.5l1.5 4-2 1.5a11 11 0 004.5 4.5L12 10l4 1.5V15c0 .6-.4 1-1 1C5.5 16 2 7.5 2 3c0-.6.4-1 1-1z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/></svg>
+            </div>
             <span>+91 91663 79653</span>
           </a>
-          <div class="contact-row">
-            <span class="contact-icon">⌖</span>
+          <div class="contact-link no-hover">
+            <div class="contact-icon-wrap">
+              <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="7" r="3" stroke="currentColor" stroke-width="1.4"/><path d="M3 16c0-3.3 2.7-6 6-6s6 2.7 6 6" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
+            </div>
             <span>Jaipur, Rajasthan, India</span>
           </div>
         </div>
 
-        <div class="social-links">
-          <a href="https://www.linkedin.com/in/kartik-soni-4620a132a" target="_blank" rel="noopener">LinkedIn ↗</a>
-          <a href="https://github.com/ksoni6546" target="_blank" rel="noopener">GitHub ↗</a>
-          <a href="Kartik_Soni_Resume.pdf" download>Download Resume ↓</a>
+        <div class="social-row">
+          <a href="https://www.linkedin.com/in/kartik-soni-4620a132a" target="_blank" rel="noopener" class="social-btn">LinkedIn ↗</a>
+          <a href="https://github.com/ksoni6546" target="_blank" rel="noopener" class="social-btn">GitHub ↗</a>
+          <a href="Kartik Soni Resume.pdf" download class="social-btn">Resume ↓</a>
         </div>
       </div>
 
-      <form class="contact-form" id="contactForm">
-        <div class="form-row">
-          <label for="name">Name</label>
-          <input type="text" id="name" name="name" placeholder="Your name" required>
-        </div>
-        <div class="form-row">
-          <label for="email">Email</label>
-          <input type="email" id="email" name="email" placeholder="you@example.com" required>
-        </div>
-        <div class="form-row">
-          <label for="message">Message</label>
-          <textarea id="message" name="message" rows="5" placeholder="Tell me about your project..." required></textarea>
-        </div>
-        <button type="submit" class="btn btn-primary btn-full">Send Message <span class="arrow">→</span></button>
-        <p class="form-note" id="formNote"></p>
-      </form>
+      <div class="contact-form-wrap reveal">
+        <form class="contact-form" id="contactForm" novalidate>
+          <div class="form-field">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" placeholder="Your name" required autocomplete="name">
+          </div>
+          <div class="form-field">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="you@example.com" required autocomplete="email">
+          </div>
+          <div class="form-field">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="5" placeholder="Tell me about your project..." required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary btn-full">
+            Send Message
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M7 2l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <p class="form-note" id="formNote" aria-live="polite"></p>
+        </form>
+      </div>
     </div>
   </div>
 </section>
 
 <footer class="footer">
   <div class="container footer-inner">
-    <span class="logo">KS<span class="logo-dot">.</span></span>
-    <p>&copy; <span id="year"></span> Kartik Soni — Built with HTML, CSS &amp; JavaScript.</p>
-    <a href="#home" class="back-to-top">back to top ↑</a>
+    <a href="#home" class="logo">KS<span class="logo-dot">.</span></a>
+    <p>&copy; <span id="year"></span> Kartik Soni</p>
+    <a href="#home" class="back-top">↑ Top</a>
   </div>
 </footer>
 
